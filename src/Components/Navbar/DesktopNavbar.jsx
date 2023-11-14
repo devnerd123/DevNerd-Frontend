@@ -24,7 +24,7 @@ const DesktopNavbar = ({ menuItems }) => {
     const handleCompanyMenuClose = () => setCompanyMenuAnchorEl(null);
 
     return (
-        <div style={{ display: 'flex', margin: '20px 20px'}}>
+        <div style={{ display: 'flex', margin: '20px 20px' }}>
             {menuItems.map((item, index) => (
                 item.text === 'Jobs' ? (
                     <React.Fragment key={index}>
@@ -47,6 +47,7 @@ const DesktopNavbar = ({ menuItems }) => {
                                     backgroundColor: '#141414',
                                     color: 'white',
                                     width: '150px',
+
                                 },
                             }}
                         >
@@ -56,7 +57,9 @@ const DesktopNavbar = ({ menuItems }) => {
                                     component={Link}
                                     to={`/jobs/${country.code}`}
                                     onClick={handleJobsMenuClose}
-                                    style={{ justifyContent: 'center' }}
+                                    style={{ justifyContent: 'center','&:hover': {
+                                        backgroundColor: '#2e2e2e',
+                                    }, }}
                                 >
                                     {country.name}
                                 </MenuItem>

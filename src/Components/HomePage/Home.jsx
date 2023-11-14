@@ -1,9 +1,18 @@
 import React from 'react'
 import SearchSection from './SearchSection'
+import { Grid } from '@mui/material'
+import TopJobs from './TopJobs'
 
 const Home = () => {
   return (
-    <SearchSection />
+    <Grid>
+      <Grid>
+        <SearchSection />
+      </Grid>
+      <Grid>
+        <TopJobs />
+      </Grid>
+    </Grid>
   )
 }
 
