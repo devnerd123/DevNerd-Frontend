@@ -1,7 +1,9 @@
-import React from 'react'
-import SearchSection from './SearchSection'
-import { Grid } from '@mui/material'
-import TopJobs from './TopJobs'
+import React from 'react';
+import SearchSection from './SearchSection';
+import { Grid } from '@mui/material';
+import TopJobs from './TopJobs';
+import TopCompany from './TopCompany';
+import './Home.css';
 
 const Home = () => {
   return (
@@ -9,11 +11,16 @@ const Home = () => {
       <Grid>
         <SearchSection />
       </Grid>
-      <Grid>
-        <TopJobs />
-      </Grid>
+      <div className="top-section">
+        <Grid >
+          <TopJobs />
+        </Grid>
+        <Grid >
+          <TopCompany />
+        </Grid>
+      </div>
     </Grid>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
