@@ -1,0 +1,87 @@
+.hero {
+    padding: 154px 0 100px;
+  }
+  
+  @media screen and (max-width: 61.875em) {
+    .hero {
+      padding: 127px 0 90px;
+    }
+  }
+  
+  .hero__title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .hero__text {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+  }
+  
+  .search-form {
+    margin-top: 20px;
+  }
+  
+  .search-form__input,
+  .search-form__select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-form__button {
+    padding: 10px 20px;
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Additional Styles for Tags and Subscribe Section */
+  .homepage__tags-wrapper {
+    margin-top: 20px;
+  }
+  
+  .home-page__tag {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #007aff;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .telegram-subscribe {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007aff;
+    padding: 5px 10px;
+    border: 1px solid #007aff;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .hero__title {
+      font-size: 2em;
+    }
+  
+    .hero__text {
+      font-size: 1.1em;
+    }
+  
+    .search-form__input,
+    .search-form__select {
+      padding: 8px;
+    }
+  
+    .search-form__button {
+      padding: 8px 16px;
+    }
+  
+    .home-page__tag {
+      font-size: 0.9em;
+    }
+  }
