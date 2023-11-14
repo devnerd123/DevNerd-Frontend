@@ -64,7 +64,7 @@ const SearchSection = () => {
         <Box
             sx={{
                 position: 'relative',
-                height: '400px',
+                height: '500px',
                 overflow: 'hidden',
             }}
         >

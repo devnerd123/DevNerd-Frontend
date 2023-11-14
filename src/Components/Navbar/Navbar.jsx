@@ -21,7 +21,7 @@ const Navbar = () => {
   ];
 
   return (
-    <AppBar position="static" style={{ backgroundColor: '#141414' }}>
+    <AppBar position="fixed" style={{ backgroundColor: '#141414' }}>
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           <Link to="/">

@@ -1,0 +1,7 @@
+.top-section {
+    background-image: url('../../assets/background-2.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}

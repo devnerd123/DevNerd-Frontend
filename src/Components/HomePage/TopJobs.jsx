@@ -14,9 +14,9 @@ const TopJobs = () => {
     ];
 
     return (
-        <Card style={{ width: '80%', margin: '0 auto', backgroundColor: '#161616', color: '#ffffff', marginTop: '10%' }}>
+        <Card style={{ width: '90%', margin: '0 auto', backgroundColor: '#161616', color: '#ffffff' }}>
             <CardContent>
-                <Typography variant="h4" align="center" gutterBottom style={{ color: '#ffffff' }}>
+                <Typography variant="h5" align="center" gutterBottom style={{ color: '#ffffff' }}>
                     Top Jobs 🔥
                 </Typography>
                 <Divider variant="middle" style={{ marginBottom: '20px', backgroundColor: '#ffffff' }} />
