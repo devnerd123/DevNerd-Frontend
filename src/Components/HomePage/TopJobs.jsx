@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Button, Grid, Card, CardContent, Divider } from '@mui/material'; // Importing from @mui/material instead of @material-ui/core
+import { Typography, Button, Grid, Card, CardContent, Divider } from '@mui/material';
 
 const TopJobs = () => {
     const jobListings = [
