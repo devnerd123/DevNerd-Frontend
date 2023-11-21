@@ -1,136 +1,79 @@
-import React from 'react';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
-const countryList = [
-    { name: 'All', code: 'all' },
-    { name: 'Canada', code: 'canada' },
-    { name: 'India', code: 'india' },
-    { name: 'Japan', code: 'japan' },
-    { name: 'UK', code: 'uk' },
-    { name: 'USA', code: 'usa' },
-];
+const MobileNavbar = () => {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-const MobileNavbar = ({ menuItems }) => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [jobsAnchorEl, setJobsAnchorEl] = React.useState(null);
-    const [companyAnchorEl, setCompanyAnchorEl] = React.useState(null);
+  const toggleDrawer = () => {
+    setDrawerOpen(!isDrawerOpen);
+  };
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+  const navLinks = [
+    { to: '/', text: 'Home' },
+    { to: '/jobs', text: 'Jobs' },
+    { to: '/company', text: 'Company' },
+    { to: '/blog', text: 'Blog' },
+    { to: '/about', text: 'About Us' },
+    { to: '/contact', text: 'Contact Us' },
+  ];
 
-    const handleClose = () => {
-        setAnchorEl(null);
-        setJobsAnchorEl(null);
-        setCompanyAnchorEl(null);
-    };
+  return (
+    <div>
+      <AppBar position="static" style={{ backgroundColor: '#141414', zIndex: 2 }}>
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2, zIndex: 2 }}
+            onClick={toggleDrawer}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, zIndex: 2 }}>
+            Company Name
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
-    const handleJobsClick = (event) => {
-        setJobsAnchorEl(jobsAnchorEl ? null : event.currentTarget);
-    };
-
-    const handleCompanyClick = (event) => {
-        setCompanyAnchorEl(companyAnchorEl ? null : event.currentTarget);
-    };
-
-    const handleJobsClose = () => {
-        setJobsAnchorEl(null);
-        handleClose();
-    };
-
-    const handleCompanyClose = () => {
-        setCompanyAnchorEl(null);
-        handleClose();
-    };
-
-    return (
-        <div style={{ display: 'flex', width: '100%' }}>
-            <IconButton
-                size="large"
-                edge="end"
-                color="inherit"
-                aria-label="menu"
-                onClick={handleClick}
+      <Drawer
+        anchor="top"
+        open={isDrawerOpen}
+        onClose={toggleDrawer}
+        BackdropProps={{ invisible: true }}
+        sx={{
+          '& .MuiDrawer-paper': {
+            height: 'auto',
+            width: '100%',
+            maxWidth: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            marginTop: '50px',
+            zIndex: 2,
+          },
+        }}
+      >
+        <List style={{ backgroundColor: '#161616', color: '#ffffff', width: '100%' }}>
+          {navLinks.map((link) => (
+            <ListItem
+              button
+              key={link.to}
+              component={Link}
+              to={link.to}
+              onClick={toggleDrawer}
+              sx={{ textAlign: 'center' }}
             >
-                <MenuIcon />
-            </IconButton>
-            <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-                PaperProps={{
-                    style: {
-                        backgroundColor: '#161616',
-                        color: 'white',
-                        width: '100%',
-                        maxHeight:'50%'
-                    },
-                }}
-            >
-                {menuItems.map((item, index) => (
-                    <React.Fragment key={index}>
-                        {item.text === 'Jobs' && (
-                            <>
-                                <MenuItem onClick={handleJobsClick} style={{ justifyContent: 'center' }}>
-                                    {item.text}
-                                </MenuItem>
-                                {Boolean(jobsAnchorEl) && (
-                                    <div>
-                                        {countryList.map((country) => (
-                                            <MenuItem
-                                                key={country.code}
-                                                component={Link}
-                                                to={`/jobs/${country.code}`}
-                                                onClick={handleJobsClose}
-                                                style={{ justifyContent: 'center', backgroundColor:'#2e2e2e' }}
-                                            >
-                                                {country.name}
-                                            </MenuItem>
-                                        ))}
-                                    </div>
-                                )}
-                            </>
-                        )}
-                        {item.text === 'Company' && (
-                            <>
-                                <MenuItem onClick={handleCompanyClick} style={{ justifyContent: 'center' }}>
-                                    {item.text}
-                                </MenuItem>
-                                {Boolean(companyAnchorEl) && (
-                                    <div>
-                                        {countryList.map((country) => (
-                                            <MenuItem
-                                                key={country.code}
-                                                component={Link}
-                                                to={`/company/${country.code}`}
-                                                onClick={handleCompanyClose}
-                                                style={{ justifyContent: 'center', backgroundColor:'#2e2e2e' }}
-                                            >
-                                                {country.name}
-                                            </MenuItem>
-                                        ))}
-                                    </div>
-                                )}
-                            </>
-                        )}
-                        {item.text !== 'Jobs' && item.text !== 'Company' && (
-                            <MenuItem onClick={handleClose} style={{ justifyContent: 'center' }}>
-                                <Link to={item.link} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {item.text}
-                                </Link>
-                            </MenuItem>
-                        )}
-                    </React.Fragment>
-                ))}
-            </Menu>
-        </div>
-    );
+              <ListItemText primary={link.text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </div>
+  );
 };
 
 export default MobileNavbar;

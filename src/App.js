@@ -1,16 +1,30 @@
-import './App.css';
-import Fotter from './Components/Fotter/Fotter';
-import Home from './Components/HomePage/Home';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
+import Home from './Components/HomePage/Home';
+import JobsPage from './Components/JobsPage/JobsPage';
+import CompaniesPage from './Components/CompaniesPage/CompaniesPage';
+import BlogPage from './Components/BlogPage/BlogPage';
+import AboutPage from './Components/AboutPage/AboutPage';
+import ContactPage from './Components/ContactPage/ContactPage';
+import Footer from './Components/Footer/Footer';
 
-function App() {
+const App = () => {
+  
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Home />
-      <Fotter />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/jobs" element={<JobsPage />} />
+        <Route path="/company" element={<CompaniesPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;
