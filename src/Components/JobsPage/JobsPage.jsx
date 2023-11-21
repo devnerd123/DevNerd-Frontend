@@ -1,8 +1,13 @@
 import React from 'react'
+import SearchJobs from './SearchJobs'
+import JobList from './JobList'
 
 const JobsPage = () => {
   return (
-    <div>JobsPage</div>
+    <>
+      <SearchJobs />
+      <JobList />
+    </>
   )
 }
 
