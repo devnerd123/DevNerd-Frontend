@@ -39,7 +39,7 @@ const Header = ({heading, subHeading, subSubHeading, sx1}) => {
           }}
         >
           <Typography variant="h2" sx={sx1}>{heading}</Typography>
-          <Typography variant="h5">{subHeading}</Typography>
+          <Typography variant="body1">{subHeading}</Typography>
           <Typography variant="h2">{subSubHeading}</Typography>
         </Box>
       </Box>
