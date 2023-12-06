@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Typography, TextField, Button, Grid, Paper, Box, Snackbar } from '@mui/material';
+import { Container, Typography, TextField, Button, Grid, Paper, Snackbar } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import backgroundImage from '../../assets/map.png';
+import Header from '../../helpers/Header';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -49,41 +49,7 @@ const ContactUs = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          position: 'relative',
-          height: '300px',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          component="div"
-          sx={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '100%',
-            filter: 'blur(5px)',
-            borderBottom: '10px solid'
-          }}
-        />
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-          }}
-        >
-          <Typography variant="h2">Contact Us</Typography>
-        </Box>
-      </Box>
+      <Header heading="Contact Us" />
       <Container component="main" maxWidth="md" style={{ marginTop: '4rem', marginBottom: '4rem', paddingTop: '2rem', paddingBottom: '2rem', boxShadow: '14px 10px 50px 10px rgba(0, 0, 0, 0.5)' }}>
         <Paper elevation={3} style={{ padding: '20px', marginTop: '20px', background: '#161616', color: '#ffffff' }}>
         <Typography variant="body1" style={{marginBottom:'10px', textAlign:'center'}}>Feel Free To Ask About Anything</Typography>

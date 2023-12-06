@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Box, Typography, TextField, Button, useTheme } from '@mui/material';
-import backgroundImage from '../../assets/map.png';
+import backgroundImage from '../assets/map.png';
 
 const defaultTitles = ['Frontend Developer', 'Software Developer', 'Full Stack Engineer', 'UX/UI Designer'];
 

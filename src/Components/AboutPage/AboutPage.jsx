@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Typography, Paper, Box } from '@mui/material';
-import backgroundImage from '../../assets/map.png';
+import { Container, Typography, Paper } from '@mui/material';
+import Header from '../../helpers/Header';
 
 const AboutPage = () => {
   const containerStyle = {
@@ -20,41 +20,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          position: 'relative',
-          height: '300px',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          component="div"
-          sx={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '100%',
-            filter: 'blur(5px)',
-            borderBottom: '10px solid'
-          }}
-        />
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-          }}
-        >
-          <Typography variant="h2">About Us</Typography>
-        </Box>
-      </Box>
+      <Header heading={"About Us"} />
       <Container style={containerStyle}>
         <Paper style={paperStyle}>
           <Typography variant="body1" paragraph>
