@@ -1,9 +1,9 @@
 import React from 'react';
-import SearchSection from './SearchSection';
 import { Grid } from '@mui/material';
 import TopJobs from './TopJobs';
 import TopCompany from './TopCompany';
 import './Home.css';
+import SearchSection from '../../helpers/SearchSection';
 
 const Home = () => {
   return (
