@@ -1,7 +1,10 @@
 import React from 'react';
 import { Typography, Button, Grid, Card, CardContent, Divider } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const TopCompany = () => {
+    const navigate = useNavigate();
+
     const jobListings = [
         'Company 1',
         'Company 2',
@@ -13,12 +16,16 @@ const TopCompany = () => {
         'Company 8',
     ];
 
+    const handleSearchMoreCompanies = () => {
+        navigate('/company');
+    };
+
     return (
-        <div style={{marginTop:'10%'}}>
+        <div style={{ marginTop: '10%' }}>
             <Typography variant="h3" align="center" gutterBottom style={{ color: '#ffffff' }}>
                 Top Companies
             </Typography>
-            <Divider variant="middle" style={{ width:'90%',marginBottom: '20px', backgroundColor: '#ffffff',margin: '0 auto' }} />
+            <Divider variant="middle" style={{ width: '90%', marginBottom: '20px', backgroundColor: '#ffffff', margin: '0 auto' }} />
             <Card style={{ width: '90%', margin: '0 auto', backgroundColor: '#161616', color: '#ffffff' }}>
                 <CardContent>
                     <Grid container spacing={2}>
@@ -42,6 +49,7 @@ const TopCompany = () => {
                                     backgroundColor: '#2e2e2e',
                                 },
                             }}
+                            onClick={handleSearchMoreCompanies}
                         >
                             Search More Companies
                         </Button>

@@ -14,7 +14,7 @@ const jobsData = [
     {
         id: 1,
         title: 'Frontend Developer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit fkjnfn kjdsb cbskjdsbj.',
         company: 'ABC Tech',
         companyLogo: 'https://via.placeholder.com/50',
         city: 'City',
