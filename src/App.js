@@ -8,6 +8,8 @@ import BlogPage from './Components/BlogPage/BlogPage';
 import AboutPage from './Components/AboutPage/AboutPage';
 import ContactPage from './Components/ContactPage/ContactPage';
 import Footer from './Components/Footer/Footer';
+import JobDetail from './Components/JobsPage/JobDetailPage/JobDetail';
+import CompanyDetail from './Components/CompaniesPage/CompanyDetail/CompanyDetail';
 
 const App = () => {
   
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/job/:jobId" element={<JobDetail />} />
+        <Route path="/company/:companyId" element={<CompanyDetail />} />
       </Routes>
       <Footer />
     </Router>
