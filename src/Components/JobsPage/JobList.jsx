@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Box,
     Grid,
@@ -9,80 +9,32 @@ import {
     InputLabel,
 } from '@mui/material';
 import FilteredJobs from './FilteredJobs';
-
-const jobsData = [
-    {
-        id: 1,
-        title: 'Frontend Developer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit fkjnfn kjdsb cbskjdsbj.',
-        company: 'ABC Tech',
-        companyLogo: 'https://via.placeholder.com/50',
-        city: 'City',
-        country: 'Japan',
-        companySize: 'Medium',
-        experienceRequired: '2+',
-        jobType: 'Full-time',
-        workMode: 'Remote',
-    },
-    {
-        id: 2,
-        title: 'Backend Developer',
-        description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        company: 'XYZ Solutions',
-        companyLogo: 'https://via.placeholder.com/50',
-        city: 'City',
-        country: 'Japan',
-        companySize: 'Large',
-        experienceRequired: '3+',
-        jobType: 'Part-time',
-        workMode: 'On-site',
-    },
-    {
-        id: 3,
-        title: 'UI/UX Designer',
-        description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        company: 'Tech Innovators',
-        companyLogo: 'https://via.placeholder.com/50',
-        city: 'City',
-        country: 'Japan',
-        companySize: 'Small',
-        experienceRequired: '0+',
-        jobType: 'Full-time',
-        workMode: 'Hybrid',
-    },
-    {
-        id: 4,
-        title: 'Data Scientist',
-        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        company: 'Data Wizards',
-        companyLogo: 'https://japan-dev.com/cdn/company_logos/zeals.png',
-        city: 'City',
-        country: 'Japan',
-        companySize: 'Medium',
-        experienceRequired: '4+',
-        jobType: 'Full-time',
-        workMode: 'Remote',
-    },
-    {
-        id: 5,
-        title: 'DevOps Engineer',
-        description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        company: 'Cloud Solutions',
-        companyLogo: 'https://via.placeholder.com/50',
-        city: 'City',
-        country: 'Japan',
-        companySize: 'Large',
-        experienceRequired: '2+',
-        jobType: 'Full-time',
-        workMode: 'On-site',
-    },
-];
+import jobsData from '../../demoData/jobsdata.json'
+import axios from 'axios';
 
 const JobList = () => {
     const [experienceFilter, setExperienceFilter] = useState('');
     const [workModeFilter, setWorkModeFilter] = useState('');
     const [jobTypeFilter, setJobTypeFilter] = useState('');
-
+    const [jobsDataApi, setJobsDataApi] = useState([]);
+    useEffect(() => {
+        axios.post('http://localhost:5000/api-graph', {
+            query: `
+                {
+                    jobs {
+                        _id
+                        name
+                        description
+                        salary
+                        location
+                    }
+                }
+            `,
+        })
+        .then(response => setJobsDataApi(response.data.data.jobs))
+        .catch(error => console.error('Error fetching data:', error));
+    }, []); 
+    console.log(jobsDataApi)
     const filteredJobs = jobsData
         .filter(
             (job) =>
@@ -111,7 +63,7 @@ const JobList = () => {
                                 MenuProps={{
                                     PaperProps: {
                                         style: {
-                                            color:"#ffffff",
+                                            color: "#ffffff",
                                             backgroundColor: '#2b2b2b',
                                         },
                                     },
@@ -145,7 +97,7 @@ const JobList = () => {
                                 MenuProps={{
                                     PaperProps: {
                                         style: {
-                                            color:"#ffffff",
+                                            color: "#ffffff",
                                             backgroundColor: '#2b2b2b',
                                         },
                                     },
@@ -173,7 +125,7 @@ const JobList = () => {
                                 MenuProps={{
                                     PaperProps: {
                                         style: {
-                                            color:"#ffffff",
+                                            color: "#ffffff",
                                             backgroundColor: '#2b2b2b',
                                         },
                                     },
