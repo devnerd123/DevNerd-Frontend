@@ -1,7 +1,10 @@
 import React from 'react';
 import { Typography, Button, Grid, Card, CardContent, Divider } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const TopJobs = () => {
+    const navigate = useNavigate();
+
     const jobListings = [
         'Job 1',
         'Job 2',
@@ -12,6 +15,9 @@ const TopJobs = () => {
         'Job 7',
         'Job 8',
     ];
+    const handleSearchMoreCompanies = () => {
+        navigate('/jobs');
+    };
 
     return (
         <Card style={{ width: '90%', margin: '0 auto', backgroundColor: '#161616', color: '#ffffff' }}>
@@ -41,6 +47,7 @@ const TopJobs = () => {
                                 backgroundColor: '#2e2e2e',
                             },
                         }}
+                        onClick={handleSearchMoreCompanies}
                     >
                         Search More Jobs
                     </Button>

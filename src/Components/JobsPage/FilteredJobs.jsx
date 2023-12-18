@@ -4,12 +4,9 @@ import {
   Typography,
   Grid,
   Paper,
-  useTheme,
 } from '@mui/material';
 
 const FilteredJobs = ({ filteredJobs }) => {
-  const theme = useTheme();
-
   return (
     <Grid container spacing={2}>
       {filteredJobs.map((job) => (
@@ -20,14 +17,13 @@ const FilteredJobs = ({ filteredJobs }) => {
               style={{
                 padding: '20px',
                 marginBottom: '20px',
-                background: theme.palette.mode === 'dark' ? '#333' : theme.palette.background.default,
-                color: theme.palette.mode === 'dark' ? '#fff' : 'inherit',
+                background: '#333', // Dark background color
+                color: '#fff', // White text color
                 borderRadius: '8px',
                 transition: 'background-color 0.3s, color 0.3s',
               }}
               hoverStyles={{
-                background: theme.palette.mode === 'dark' ? '#555' : '#f0f0f0',
-                color: theme.palette.mode === 'dark' ? '#fff' : 'inherit',
+                background: '#555', // Dark hover background color
               }}
             >
               <Grid container spacing={2}>
