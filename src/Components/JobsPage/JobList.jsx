@@ -47,6 +47,7 @@ const JobList = () => {
         <Container>
             <Box my={4}>
                 <Grid container spacing={2}>
+<<<<<<< Updated upstream
                     <Grid item xs={12} sm={4}>
                         <FormControl fullWidth style={{ background: "#2b2b2b", }}>
                             <InputLabel id="experience-filter-label" style={{ color: "#ffffff" }}>
@@ -136,6 +137,42 @@ const JobList = () => {
                             </Select>
                         </FormControl>
                     </Grid>
+=======
+                    {[
+                        { label: 'Experience Required', state: experienceFilter, setState: setExperienceFilter, options: ["", "Fresher", "1+", "2+", "3+", "4+", "5+", "7+", "10+"] },
+                        { label: 'Work Mode', state: workModeFilter, setState: setWorkModeFilter, options: ["", "On-site", "Remote", "Hybrid"] },
+                        { label: 'Job Type', state: jobTypeFilter, setState: setJobTypeFilter, options: ["", "Full-time", "Part-time"] },
+                    ].map((filter, index) => (
+                        <Grid key={index} item xs={12} sm={4}>
+                            <FormControl fullWidth style={{ background: "#2b2b2b" }}>
+                                <InputLabel id={`${filter.label.toLowerCase().replace(" ", "-")}-filter-label`} style={{ color: "#ffffff" }}>
+                                    {filter.label}
+                                </InputLabel>
+                                <Select
+                                    labelId={`${filter.label.toLowerCase().replace(" ", "-")}-filter-label`}
+                                    id={`${filter.label.toLowerCase().replace(" ", "-")}-filter`}
+                                    value={filter.state}
+                                    label={filter.label}
+                                    onChange={(e) => filter.setState(e.target.value)}
+                                    InputLabelProps={{ style: { color: 'white' } }}
+                                    style={{ color: "#ffffff" }}
+                                    MenuProps={{
+                                        PaperProps: {
+                                            style: {
+                                                color: "#ffffff",
+                                                backgroundColor: '#2b2b2b',
+                                            },
+                                        },
+                                    }}
+                                >
+                                    {filter.options.map((option, index) => (
+                                        <MenuItem key={index} value={option}>{option || 'Any'}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                    ))}
+>>>>>>> Stashed changes
                 </Grid>
             </Box>
             <FilteredJobs filteredJobs={filteredJobs} />

@@ -1,16 +1,21 @@
-import React from 'react'
+import React from 'react';
 import { Typography, Box } from '@mui/material';
 import backgroundImage from '../assets/map.png';
 
+const Header = ({ heading, subHeading, subSubHeading, sx1, headerstyle }) => {
+  const containerStyles = headerstyle
+    ? headerstyle
+    : {
+        position: 'relative',
+        height: '350px',
+        overflow: 'hidden',
+      };
 
-const Header = ({heading, subHeading, subSubHeading, sx1}) => {
   return (
     <>
-    <Box
+      <Box
         sx={{
-          position: 'relative',
-          height: '300px',
-          overflow: 'hidden',
+          ...containerStyles,
         }}
       >
         <Box
@@ -21,7 +26,7 @@ const Header = ({heading, subHeading, subSubHeading, sx1}) => {
             backgroundPosition: 'center',
             height: '100%',
             filter: 'blur(5px)',
-            borderBottom: '10px solid'
+            borderBottom: '10px solid',
           }}
         />
         <Box
@@ -38,13 +43,15 @@ const Header = ({heading, subHeading, subSubHeading, sx1}) => {
             color: 'white',
           }}
         >
-          <Typography variant="h2" sx={sx1}>{heading}</Typography>
+          <Typography variant="h2" sx={sx1}>
+            {heading}
+          </Typography>
           <Typography variant="body1">{subHeading}</Typography>
           <Typography variant="h2">{subSubHeading}</Typography>
         </Box>
       </Box>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

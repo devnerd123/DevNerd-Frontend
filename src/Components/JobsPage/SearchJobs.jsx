@@ -15,7 +15,7 @@ const SearchJobs = () => {
         <Box
             sx={{
                 position: 'relative',
-                height: '300px',
+                height: '400px',
                 overflow: 'hidden',
             }}
         >

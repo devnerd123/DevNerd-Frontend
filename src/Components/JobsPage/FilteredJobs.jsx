@@ -10,8 +10,8 @@ const FilteredJobs = ({ filteredJobs }) => {
   return (
     <Grid container spacing={2}>
       {filteredJobs.map((job) => (
-        <Grid item xs={12} md={6} key={job.id}>
-          <Link to={`/job/${job.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Grid item xs={12} md={6} key={job._id}>
+          <Link to={`/job/${job._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <Paper
               elevation={3}
               style={{
@@ -31,10 +31,10 @@ const FilteredJobs = ({ filteredJobs }) => {
                   <Typography variant="h6" color="primary">{job.title}</Typography>
                   <Typography variant="subtitle2" color="textSecondary">{job.description.substring(0, 100)}...</Typography>
                   <Typography variant="body2">
-                    <strong>Company:</strong> {job.company}
+                    <strong>Company:</strong> {job.company.name}
                   </Typography>
                   <Typography variant="body2">
-                    <strong>Location:</strong> {job.city}, {job.country}
+                    <strong>Location:</strong> {job?.location?.city}, {job?.location?.country}
                   </Typography>
                   <Typography variant="body2">
                     <strong>Company Size:</strong> {job.companySize}
