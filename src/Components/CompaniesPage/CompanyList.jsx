@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+<<<<<<< Updated upstream
     Box,
     Grid,
     Container,
@@ -8,9 +9,21 @@ import {
     FormControl,
     InputLabel,
     Input
+=======
+  Box,
+  Grid,
+  Container,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Input,
+  CircularProgress,
+>>>>>>> Stashed changes
 } from '@mui/material';
 import FilteredCompanies from './FilteredCompanies'; // Create this component similar to FilteredJobs
 
+<<<<<<< Updated upstream
 const companiesData = [
     {
         id: 1,
@@ -42,12 +55,31 @@ const companiesData = [
     },
     // ... (Add more company data)
 ];
+=======
+const GET_COMPANIES = gql`
+  query GetAllCompany
+  {
+    companies{
+      _id
+      name
+      short_des
+      logo
+      location {
+        city
+        country
+      }
+      company_size
+    }
+  }
+`;
+>>>>>>> Stashed changes
 
 const CompanyList = () => {
     const [companySizeFilter, setCompanySizeFilter] = useState('');
     const [countryFilter, setCountryFilter] = useState('');
     const [companyNameFilter, setCompanyNameFilter] = useState('');
 
+<<<<<<< Updated upstream
     const filteredCompanies = companiesData
         .filter(
             (company) =>
@@ -55,6 +87,10 @@ const CompanyList = () => {
                 (countryFilter === '' || company.country === countryFilter) &&
                 (companyNameFilter === '' || company.companyName.toLowerCase().includes(companyNameFilter.toLowerCase()))
         );
+=======
+  if (loading) return <CircularProgress />;
+  if (error) return <p>Error: {error.message}</p>;
+>>>>>>> Stashed changes
 
     return (
         <Container>

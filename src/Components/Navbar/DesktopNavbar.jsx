@@ -22,7 +22,7 @@ const DesktopNavbar = () => {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: '#141414' }}>
+    <AppBar position="fixed" style={{ backgroundColor: '#141414' }}>
       <style>
         {`
           @keyframes underline {
