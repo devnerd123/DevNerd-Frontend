@@ -6,11 +6,11 @@ const defaultTitles = ['Frontend Developer', 'Software Developer', 'Full Stack E
 
 const SearchSection = () => {
     const theme = useTheme();
-
+    // const [query, setQuery]=useState("")
     const handleSearch = () => {
-        // Implement your search logic here
+        // setQuery(event.target.value)
     };
-
+    // console.log(query)
     const [jobTitle, setJobTitle] = useState('');
     const [country, setCountry] = useState('');
     const [showDefaultTitles, setShowDefaultTitles] = useState(true);
@@ -20,13 +20,12 @@ const SearchSection = () => {
     const handleJobTitleChange = (e) => {
         const value = e.target.value;
         setJobTitle(value);
-        setShowDefaultTitles(value === ''); // Show default titles only when jobTitle is empty
+        setShowDefaultTitles(value === '');
     };
 
     const textFieldRef = useRef(null);
 
     const handleTextFieldFocus = () => {
-        // Reset the currentIndex when the TextField is refocused
         setDefaultTitleIndex(0);
         setTypedTitle('');
     };

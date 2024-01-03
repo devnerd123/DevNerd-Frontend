@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "companyName": "ABC Tech",
+        "companyLogo": "https://via.placeholder.com/50",
+        "country": "Japan",
+        "companySize": "Medium"
+    },
+    {
+        "id": 2,
+        "companyName": "XYZ Solutions",
+        "companyLogo": "https://via.placeholder.com/50",
+        "country": "Japan",
+        "companySize": "Large"
+    },
+    {
+        "id": 3,
+        "companyName": "Tech Innovators",
+        "companyLogo": "https://via.placeholder.com/50",
+        "country": "Japan",
+        "companySize": "Small"
+    },
+    {
+        "id": 4,
+        "companyName": "Tech Innovators",
+        "companyLogo": "https://via.placeholder.com/50",
+        "country": "India",
+        "companySize": "Small"
+    }
+]
